@@ -14,7 +14,7 @@
 // of rig -> web -> phone -> Pebble. Give the data some extra time to
 // propagate through the system before shifting the graph to the left
 // to indicate staleness.
-#define GRAPH_STALENESS_GRACE_PERIOD_SECONDS (3*60)
+#define GRAPH_STALENESS_GRACE_PERIOD_SECONDS (5*60)
 
 ///////////////////////////////////////////////////////
 
