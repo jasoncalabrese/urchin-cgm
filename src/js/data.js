@@ -13,7 +13,7 @@ var data = function(c, maxSGVCount) {
   var MAX_OPENAPS_STATUSES = 24;
   var MAX_BOLUSES_PER_HOUR_TO_CACHE = 6;
 
-  var sgvCache = new Cache('sgv', maxSGVCount);
+  var sgvCache = new Cache('sgv', maxSGVCount * 3);
   var tempBasalCache = new Cache('tempBasal', maxSGVCount);
   var bolusCache = new Cache('bolus', Math.ceil(maxSGVCount / 12 * MAX_BOLUSES_PER_HOUR_TO_CACHE));
   var uploaderBatteryCache = new Cache('uploaderBattery', MAX_UPLOADER_BATTERIES);
@@ -52,8 +52,8 @@ var data = function(c, maxSGVCount) {
   };
 
   d.setMaxSGVCount = function(count) {
-    maxSGVCount = count;
-    sgvCache.setMaxEntries(count);
+    maxSGVCount = count * 3;
+    sgvCache.setMaxEntries(count * 3);
     tempBasalCache.setMaxEntries(count);
     bolusCache.setMaxEntries(Math.ceil(count / 12 * MAX_BOLUSES_PER_HOUR_TO_CACHE));
   };
